@@ -15,7 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $data = Post::all();
+        return view('post.index', compact('data'));
     }
 
     /**
@@ -25,7 +26,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('post.create');
     }
 
     /**
@@ -36,7 +37,27 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        //
+        $this->validate($request, [
+                'title' => 'required',
+                'description' => 'required',
+            ]);
+            //
+            $post = Post::create([
+                'title' => $request->title,
+                'description' => $request->description,
+                'created_at' => Carbon::now()
+            ]);
+
+            if($post){
+                return redirect()->route('post.index')->with(['success' => 'new post has been created']);
+            }else {
+                return redirect()
+                    ->back()
+                    ->withInput()
+                    ->with([
+                        'error' => 'Some problem occurred, please try again'
+                    ]);
+            }
     }
 
     /**
@@ -47,7 +68,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        return view('post.show', compact('post'));
     }
 
     /**
@@ -58,7 +81,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        return view('post.edit', compact('post'));
     }
 
     /**
@@ -70,7 +95,33 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        //
+        $this->validate($request, [
+                'title' => 'required',
+                'description' => 'required',
+            ]);
+
+            $post = Post::findOrFail($id);
+
+            $post->update([
+                'title' => $request->title,
+                'description' => $request->description,
+                'updated_at' => Carbon::now()
+            ]);
+
+            if ($post) {
+                return redirect()
+                    ->route('post.index')
+                    ->with([
+                        'success' => 'Post has been updated'
+                    ]);
+            } else {
+                return redirect()
+                    ->route('post.index')
+                    ->withInput()
+                    ->with([
+                        'error' => 'Some problem has occured, please try again'
+                    ]);
+            }
     }
 
     /**
@@ -81,6 +132,21 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->delete();
+
+        if ($post) {
+            return redirect()
+                ->route('post.index')
+                ->with([
+                    'success' => 'Post has been deleted'
+                ]);
+        } else {
+            return redirect()
+                ->route('post.index')
+                ->with([
+                    'error' => 'Some problem has occurred, please try again'
+                ]);
+        }
     }
 }
