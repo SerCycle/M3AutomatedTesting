@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+@auth
+
 <div class="container text-center">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
         {{ __('Create post') }}
@@ -38,7 +40,7 @@
                             </div>
                             <div class="flex text-end">
                                 <button type="submit" class="btn btn-primary p-3  fw-bold rounded-lg mr-5">Create</button>
-                                <button type="submit" class="btn btn-danger p-3  fw-bold rounded-lg">Cancel</button>
+                                {{-- <button type="submit" class="btn btn-danger p-3  fw-bold rounded-lg">Cancel</button> --}}
                             </div>
                         </div>
 
@@ -48,4 +50,7 @@
         </div>
     </div>
 </div>
+
+@endauth
+
 @endsection
