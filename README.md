@@ -23,7 +23,11 @@ jika sudah memenuhi kriteria diatas teman-teman bisa melakukan clone pada projec
 
 8. `$ php artisan dusk:install`
 9. `$ php artisan dusk:chrome-driver`
-
+    > Jika terjadi error karena versi chrome-driver berbeda dengan di google chrome seperti dibawah ini
+    > ![image](https://user-images.githubusercontent.com/63024032/230641337-782deee3-a2e2-4c55-8b1d-e935ecefca55.png)
+    > 
+    > jalankan perintah berikut: 
+    > `$ php artisan dusk:chrome-driver --detect`
 10. siapkan database teman-teman (belum ada table), dan pastikan nama database tersebut sesuai dengan yang tertulis di .env
 
 11. migrate database dengan perintah 
