@@ -44,9 +44,9 @@
                         @endif
 
                     @else
-                        <ul class="navbar-nav me-auto">
+                        <ul class="navbar-nav me-auto mx-3">
                             <div class="d-flex hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <a class="nav-link" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                                <a class="nav-link mr-3" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                                     {{ __('Dashboard') }}
                                 </a>
                                 <a class="nav-link" href="{{ route('post.index') }}" :active="request()->routeIs('post.index')">

@@ -6,13 +6,13 @@
         <div class="row">
             <div class="col-lg-10">
                 <div class="flex justify-between items-center">
-                    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    <h2 class="font-semibold my-3">
                         {{ __('All Posts from ead laboratory') }}
                     </h2>
                 </div>
             </div>
             <div class="col-lg-2">
-            <a class="btn btn-primary p-3 text-white font-bold rounded-lg mr-2 flex justify-between items-center" href="{{route('post.create')}}">Create new post</a>
+                <a class="btn btn-primary text-white font-bold rounded-lg my-3" href="{{route('post.create')}}">Create new post</a>
             </div>
         </div>
 
@@ -36,19 +36,22 @@
                     <div class="p-6 bg-white border-b border-gray-200 grid grid-cols-3 gap-3">
                         @foreach($data as $dt)
                         <div class="p-3 rounded-lg shadow">
-                            <h2 class="font-bold text-2xl">{{$dt->title}}</h2>
+                            <h2 class="font-bold CapiTaliZed text">{{$dt->title}}</h2>
                             <p class="mb-4 mt-2">{{ $dt->created_at->diffForHumans() }}</p>
                             <p class="font-base mb-3">{{$dt->description}}</p>
                             <hr class="mb-2" />
                             <div>
-    
-                                <a type="submit" href="{{ route('post.show', $dt->id )}}" id="{{$dt->id}}" class="bg-lime-500 p-3 text-white font-bold rounded-lg mr-2">show</a>
-                                <a type="submit" href="{{ route('post.edit', $dt->id )}}" id="edit-{{$dt->id}}" class="bg-amber-500 p-3 text-white font-bold rounded-lg mr-2">Edit</a>
-                                <form class="inline" action="{{ route('post.destroy', $dt->id )}}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" id="delete-{{$dt->id}}" class="bg-rose-500 p-3 text-white font-bold rounded-lg">Delete</button>
-                                </form>
+                                <div class="row">
+                                    <div class="d-flex flex-row">         
+                                        <a type="submit" href="{{ route('post.show', $dt->id )}}" id="{{$dt->id}}" class="btn btn-success my-2 mx-1">show</a>
+                                        <a type="submit" href="{{ route('post.edit', $dt->id )}}" id="edit-{{$dt->id}}" class="btn btn-primary my-2 mx-1">Edit</a>
+                                        <form class="my-2 mx-1" action="{{ route('post.destroy', $dt->id )}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" id="delete-{{$dt->id}}" class="btn btn-danger ">Delete</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         @endforeach

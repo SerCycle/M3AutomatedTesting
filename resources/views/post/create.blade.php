@@ -19,24 +19,24 @@
                     <form method="POST" action="{{route('post.store')}}">
                         @csrf
                         <div class="row my-4 mx-3">
-                            <div class="mb-3">
+                            <div class="mb-5">
                                 <div class="col">
-                                    <label><span class="font-semibold" style="">Title</span></label>
+                                    <label><span class="font-semibold fs-5" >Title</span></label>
                                 </div>
                                 <div class="col">
                                     <input type="text" name="title" class="p-3 form-control" style= "border: 1px solid blue; border-radius: 10px;" />
                                 </div>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-5">
                                 <div class="col">
-                                    <label><span class="font-semibold">Description</span></label>
+                                    <label><span class="font-semibold fs-5">Description</span></label>
                                 </div>
                                 <div class="col">
                                 <textarea name="description" class="p-3 form-control" style="border: 1px solid blue;border-radius: 10px;"></textarea>
                                 </div>
                                 
                             </div>
-                            <div class="flex justify-end">
+                            <div class="flex text-end">
                                 <button type="submit" class="btn btn-primary p-3  fw-bold rounded-lg mr-5">Create</button>
                                 <button type="submit" class="btn btn-danger p-3  fw-bold rounded-lg">Cancel</button>
                             </div>
