@@ -3,7 +3,7 @@ Halo teman-teman, selamat datang di modul 3 dari praktikum Perancangan Perangkat
 
 - PHP 8.0
 - Composer
-- Node.js
+- Node.js (https://nodejs.org/en)
 - mysql
 
 jika sudah memenuhi kriteria diatas teman-teman bisa melakukan clone pada project ini dan menjalankannya. caranya sebagai berikut :
