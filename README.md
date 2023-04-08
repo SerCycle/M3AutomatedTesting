@@ -8,7 +8,7 @@ Halo teman-teman, selamat datang di modul 3 dari praktikum Perancangan Perangkat
 
 jika sudah memenuhi kriteria diatas teman-teman bisa melakukan clone pada project ini dan menjalankannya. caranya sebagai berikut :
 
-1. `$ git clone (copy url pada github)` 
+1. Lakukan clone proyek pada device kalian masing masing   
 
 2. `$ composer install`
 
